@@ -79,3 +79,29 @@ set background=dark
 let g:molokai_original = 1
 let g:rehash256 = 1
 colorscheme molokai
+
+"=====================================================
+"===================== MAPPINGS ======================
+
+" This comes first, because we have mappings that depend on leader
+" With a map leader it's possible to do extra key combinations
+" i.e: <leader>w saves the current file
+let mapleader = ","
+
+" Fast saving
+nnoremap <leader>w :w!<cr>
+nnoremap <silent> <leader>q :q!<CR>
+
+" Clear highlight
+nnoremap <CR> :noh<CR><CR>
+
+
+"=====================================================
+"===================== MAPPINGS ======================
+
+" ==================== NerdTree ====================
+" For toggling
+noremap <Leader>n :NERDTreeToggle<cr>
+noremap <Leader>f :NERDTreeFind<cr>
+
+let NERDTreeShowHidden=1
