@@ -111,6 +111,7 @@ source ~/.aliases
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd'
 
 # Syntax highlighting
 source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
