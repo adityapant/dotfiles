@@ -101,6 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Pure prompt
+# Install with:
+# mkdir $HOME/repos
+# git clone https://github.com/sindresorhus/pure.git "$HOME/repos/pure"
 fpath+=$HOME/repos/pure
 autoload -U promptinit; promptinit
 PURE_PROMPT_SYMBOL="»"
@@ -115,3 +118,7 @@ export FZF_DEFAULT_COMMAND='fd'
 
 # Syntax highlighting
 source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Auto suggestions
+source $HOME/repos/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ ! "$TMUX" = "" ]; then export TERM=xterm-256color; fi
