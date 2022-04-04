@@ -127,6 +127,19 @@ noremap <leader>n :NERDTreeToggle<cr>
 
 let NERDTreeShowHidden=1
 
+" ==================== UltiSnips ===================
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger='<C-Space>'
+
+" shortcut to go to next position
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+
+" shortcut to go to previous position
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
+
 " ==================== vim-go ====================
 let g:go_version_warning = 0
 " let g:go_fmt_command = "goimports"
