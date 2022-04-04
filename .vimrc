@@ -10,6 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'sirver/UltiSnips'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 "=====================================================
@@ -94,9 +95,6 @@ augroup filetypedetect
 	autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
 augroup END
 
-"=====================================================
-"===================== MAPPINGS ======================
-
 " This comes first, because we have mappings that depend on leader
 " With a map leader it's possible to do extra key combinations
 " i.e: <leader>w saves the current file
@@ -114,9 +112,6 @@ inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
 
 
-"=====================================================
-"===================== MAPPINGS ======================
-
 " ==================== FZF ====================
 noremap <C-p> :Files<CR>
 
@@ -128,16 +123,9 @@ noremap <leader>n :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 
 " ==================== UltiSnips ===================
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger='<C-Space>'
-
-" shortcut to go to next position
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-
-" shortcut to go to previous position
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
+let g:UltiSnipsExpandTrigger='<C-Space>' " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsJumpForwardTrigger='<c-j>' " shortcut to go to next position
+let g:UltiSnipsJumpBackwardTrigger='<c-k>' " shortcut to go to previous position
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 
 " ==================== vim-go ====================
