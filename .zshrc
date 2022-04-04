@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 # Disable oh-my-zsh theme, we'll use Pure
-ZSH_THEME=""
+ZSH_THEME="af-magic"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -104,13 +104,17 @@ source $ZSH/oh-my-zsh.sh
 # Install with:
 # mkdir $HOME/repos
 # git clone https://github.com/sindresorhus/pure.git "$HOME/repos/pure"
-fpath+=$HOME/repos/pure
-autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL="»"
-prompt pure
+# fpath+=$HOME/repos/pure
+# autoload -U promptinit; promptinit
+# PURE_PROMPT_SYMBOL="»"
+# prompt pure
+#
+
+export PATH=$PATH:/usr/local/bin
 
 source ~/.devenv
 source ~/.aliases
+source ~/.zshrc-local
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

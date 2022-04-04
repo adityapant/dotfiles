@@ -2,11 +2,14 @@
 call plug#begin('~/.vim/plugged')
 Plug 'ervandew/supertab'
 Plug 'fatih/molokai'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+Plug 'sirver/UltiSnips'
 call plug#end()
 
 "=====================================================
@@ -24,6 +27,9 @@ if !has('nvim')
 endif
 
 set relativenumber " Show relative numbers
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set ruler " Show file stats
 set laststatus=2
 set encoding=utf-8              " Set default encoding to UTF-8
@@ -32,7 +38,7 @@ set autoindent
 set backspace=indent,eol,start  " Makes backspace key more powerful.
 set incsearch                   " Shows the match while typing
 set hlsearch                    " Highlight found searches
-set mouse=a                     "Enable mouse mode
+" set mouse=a                     "Enable mouse mode
 
 set noerrorbells             " No beeps
 set number                   " Show line numbers
@@ -94,7 +100,7 @@ augroup END
 " This comes first, because we have mappings that depend on leader
 " With a map leader it's possible to do extra key combinations
 " i.e: <leader>w saves the current file
-let mapleader = ","
+let mapleader = " "
 
 " Fast saving
 nnoremap <leader>w :w!<cr>
@@ -116,8 +122,8 @@ noremap <C-p> :Files<CR>
 
 " ==================== NerdTree ====================
 " For toggling
-noremap <Leader>n :NERDTreeToggle<cr>
-noremap <Leader>f :NERDTreeFind<cr>
+noremap <leader>n :NERDTreeToggle<cr>
+" noremap <leader>f :NERDTreeFind<cr>
 
 let NERDTreeShowHidden=1
 
