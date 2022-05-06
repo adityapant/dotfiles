@@ -1,0 +1,53 @@
+alias p4v='p4v > /tmp/p4v.log 2> /tmp/p4verr.log &; disown'
+alias cp='cp -v'
+alias idea='idea.sh > /dev/null 2>&1 &; disown'
+alias pycharm='pycharm.sh > /dev/null 2>&1 &; disown'
+alias eclipse='eclipse > /tmp/eclipse.log 2> /tmp/eclipseerr.log'
+alias fpkg="sudo yum list installed | grep"
+alias browse=nautilus
+alias ip='hostname -I'
+alias pssort='ps aux --sort=start_time'
+alias kubes="kubectl -n kube-system"
+alias kube="kubectl"
+alias ws='cd $BUILD_HOME/ws'
+alias repo='cd $BUILD_HOME/repo'
+
+klog()
+{
+    kubectl logs $1 | less
+}
+
+reloadterm ()
+{
+    clear
+}
+
+n ()
+{
+    # Block nesting of nnn in subshells
+    if [ "$((NNNLVL + 0))" -ge 1 ]; then
+        echo "nnn is already running"
+        return
+    fi
+
+    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
+    # To cd on quit only on ^G, export NNN_TMPFILE after the call to nnn
+    export NNN_TMPFILE=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd
+
+    # Unmask ^Q (, ^V etc.) (if required, see `stty -a`) to Quit nnn
+    # stty start undef
+    # stty stop undef
+    # stty lwrap undef
+
+    nnn "$@"
+
+    if [ -f "$NNN_TMPFILE" ]; then
+            . "$NNN_TMPFILE"
+            rm -f "$NNN_TMPFILE" > /dev/null
+    fi
+}
+
+cpstat ()
+{
+    tar c "$1" | pv | tar x -C "$2"
+}

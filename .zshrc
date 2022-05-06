@@ -114,6 +114,7 @@ export PATH=$PATH:/usr/local/bin
 
 source ~/.devenv
 source ~/.aliases
+source ~/.p4.aliases
 source ~/.zshrc-local
 
 # FZF
@@ -126,3 +127,6 @@ source $HOME/repos/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Auto suggestions
 source $HOME/repos/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ ! "$TMUX" = "" ]; then export TERM=xterm-256color; fi
+
+# Hook direnv
+eval "$(direnv hook zsh)"

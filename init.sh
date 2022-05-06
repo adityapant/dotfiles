@@ -20,6 +20,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/repos/
 echo "Installing zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/repos/zsh-autosuggestions"
 
+# Install direnv
+echo "Installing direnv"
+curl -sfL https://direnv.net/install.sh | bash
+
 # Make backups
 cp -v ~/.tmux.conf ~/.tmux.conf.bak
 cp -v ~/.vimrc ~/.vimrc.bak

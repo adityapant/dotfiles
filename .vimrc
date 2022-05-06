@@ -61,6 +61,7 @@ set nocursorline
 set updatetime=300
 set pumheight=10             " Completion window max size
 set conceallevel=2           " Concealed text is completely hidden
+set scrolloff=5              " Offset
 
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
