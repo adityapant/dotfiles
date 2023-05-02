@@ -11,6 +11,7 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'sirver/UltiSnips'
 Plug 'tpope/vim-surround'
+Plug 'sotte/presenting.vim'
 call plug#end()
 
 "=====================================================
