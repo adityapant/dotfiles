@@ -130,3 +130,15 @@ if [ ! "$TMUX" = "" ]; then export TERM=xterm-256color; fi
 
 # Hook direnv
 eval "$(direnv hook zsh)"
+
+# Notes
+function today() {
+    TODAY_DIR="$HOME/today/"
+    DATE_DIR=$(date +'%Y-%m-%d')
+
+    if [ ! -d  $TODAY_DIR$DATE_DIR ]; then
+        mkdir -p $TODAY_DIR$DATE_DIR
+    fi;
+
+    echo $TODAY_DIR$DATE_DIR
+}
