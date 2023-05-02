@@ -1,4 +1,4 @@
-alias p4v='p4v > /tmp/p4v.log 2> /tmp/p4verr.log &; disown'
+alias p4v='pushd ~; p4v > /tmp/p4v.log 2> /tmp/p4verr.log &; disown; popd'
 alias cp='cp -v'
 alias idea='idea.sh > /dev/null 2>&1 &; disown'
 alias pycharm='pycharm.sh > /dev/null 2>&1 &; disown'
