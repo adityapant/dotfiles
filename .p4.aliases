@@ -8,18 +8,18 @@ die ()
 # P4 related
 p4-checkout-all()
 {
-    p4 edit ./...
+    p4 edit -c ${CHANGELIST} ./...
 }
 
 p4-revert-all()
 {
-    p4 revert -a -c default
+    p4 revert -a -c ${CHANGELIST}
 }
 
 p4-reconcile()
 {
-    p4 edit ./...
-    p4 revert -a -c default
+    p4 edit ${CHANGELIST} ./...
+    p4 revert -a -c ${CHANGELIST}
 }
 
 p4-ebf-merge()
@@ -31,9 +31,9 @@ p4-ebf-merge()
 
 p4-opened()
 {
-    [ "$#" -eq 1 ] || die "1 argument required, $# provided" || return 1
-    [ "$1" = "default" ] || echo $1 | grep -E -q '^[0-9]+$' || die "Should be either of default or a CL number" || return 1
-    p4 opened -c $1
+    # [ "$#" -eq 1 ] || die "1 argument required, $# provided" || return 1
+    # [ "$1" = "default" ] || echo $1 | grep -E -q '^[0-9]+$' || die "Should be either of default or a CL number" || return 1
+    p4 opened -c ${CHANGELIST}
 }
 
 p4-hist()
@@ -51,8 +51,8 @@ p4-changes()
 
 p4-submit()
 {
-    [ "$#" -eq 1 ] || die "1 argument required, $# provided" || return 1
-    p4 submit -c $1
+    # [ "$#" -eq 1 ] || die "1 argument required, $# provided" || return 1
+    p4 submit -c ${CHANGELIST}
 }
 
 p4-submit-shelved()
@@ -63,8 +63,18 @@ p4-submit-shelved()
 
 p4-delete-shelved()
 {
-    [ "$#" -eq 1 ] || die "1 argument required, $# provided" || return 1
-    p4 shelve --parallel=0 -d -Af -c $1
+    # [ "$#" -eq 1 ] || die "1 argument required, $# provided" || return 1
+    p4 shelve --parallel=0 -d -Af -c ${CHANGELIST}
+}
+
+p4-shelve()
+{
+    p4 shelve --parallel=0 -Af -f -c ${CHANGELIST}
+}
+
+p4-unshelve()
+{
+    p4 unshelve -s ${CHANGELIST} -f -c ${CHANGELIST} -Af
 }
 
 p4-reopen()
@@ -85,4 +95,26 @@ p4-diff2()
     vim -c "set syntax=$ext" -d $tempFile1 $tempFile2
     rm -f $tempFile1
     rm -f $tempFile2
+}
+
+p4-desc()
+{
+    [ "$#" -eq 1 ] || die "1 argument required, $# provided" || return 1
+    p4 describe -s $1
+}
+
+p4-diff()
+{
+    file=$(p4-opened | fzf | cut -d" " -f1)
+    p4 diff ${file}
+}
+
+p4-edit()
+{
+    p4 edit -c ${CHANGELIST} $1
+}
+
+p4-revert()
+{
+    p4 revert -c ${CHANGELIST} $1
 }
